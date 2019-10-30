@@ -1,3 +1,7 @@
+import os_func
+import bank_func
+import victory_func
+
 while True:
     print('1. создать папку')
     print('2. удалить (файл/папку)')
@@ -14,39 +18,45 @@ while True:
 
     choice = input('Выберите пункт меню')
     if choice == '1':
-        pass
+        os_func.create_dir(input('Введите наименование создаваемой папки'))
 
     elif choice == '2':
-        pass
+        os_func.remove_dir_file(input('Введите наименование папки/файла для удаления'))
 
     elif choice == '3':
-        pass
-    
+        name_src = input('Введите наименование старого файла/папки для копирования')
+        name_dst = input('Введите наименование нового файла/папки для копирования')
+        os_func.copy_dir_file(name_src, name_dst)
+
     elif choice == '4':
-        pass
+        for i in os_func.get_dir_file():
+            print(i)
 
     elif choice == '5':
-        pass
+        for i in os_func.get_dir():
+            print(i)
+
     elif choice == '6':
-        pass
+        for i in os_func.get_file():
+            print(i)
 
     elif choice == '7':
-        pass
+        print(os_func.get_info_os())
 
     elif choice == '8':
-        pass
+        os_func.info_author()
 
     elif choice == '9':
-        pass
-    
+        victory_func.victory()
+
     elif choice == '10':
-        pass
+        bank_func.bank_account()
 
     elif choice == '11':
-        pass
-    
+        os_func.change_wd(input('Введите наименование папки/файла для удаления'))
+
     elif choice == '12':
         break
-        
+
     else:
         print('Неверный пункт меню')
