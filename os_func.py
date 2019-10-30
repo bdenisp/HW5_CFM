@@ -64,6 +64,11 @@ def info_author():
 
 
 def change_wd(path_arg):
-    if not os.path.isabs(path_arg):
-        path_arg = os.path.join(os.getcwd(), path_arg)
-    return os.chdir(path_arg)
+    if os.path.exists(path_arg):
+        if not os.path.isabs(path_arg):
+            path_arg = os.path.join(os.getcwd(), path_arg)
+        os.chdir(path_arg)
+    else:
+        print('Такой папки нет.')
+        pass
+

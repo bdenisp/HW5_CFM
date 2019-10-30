@@ -53,7 +53,7 @@ while True:
         bank_func.bank_account()
 
     elif choice == '11':
-        os_func.change_wd(input('Введите наименование папки/файла для удаления'))
+        os_func.change_wd(input('Введите наименование новой папки для смены'))
 
     elif choice == '12':
         break
