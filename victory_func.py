@@ -1,7 +1,5 @@
 import random
 
-
-
 # список уникальных ключей = ФИО знаменитости
 keys_famous = [
     'Пушкин А.С.',
@@ -85,8 +83,12 @@ month_famous = {
     '12': 'декабря'
 }
 
-def victory():
 
+def trasformation_date(date_arg, month_arg, year_arg):
+    return ('{} {} {} года'.format(day_famous.get(date_arg), month_famous.get(month_arg), year_arg))
+
+
+def victory():
     bullvictory = True
     number_question = 0
 
@@ -102,20 +104,23 @@ def victory():
             countall += 1
 
             if (dic_famous.get(keys_famous[number_famous]) == born_date):
-                print ('Верно!')
+                print('Верно!')
                 counttrue += 1
 
             else:
-                print ('Ответ неверный!')
+                print('Ответ неверный!')
                 date_true = dic_famous.get(keys_famous[number_famous])[0:2]
                 month_true = dic_famous.get(keys_famous[number_famous])[3:5]
                 year_true = dic_famous.get(keys_famous[number_famous])[6:10]
-                print ('{} родился {} {} {} года'.format(
-                    keys_famous[number_famous],
-                    day_famous.get(date_true),
-                    month_famous.get(month_true),
-                    year_true))
 
+                print('{} родился {}'.format(keys_famous[number_famous],
+                                             trasformation_date(date_true, month_true, year_true)))
+
+                # print('{} родился {} {} {} года'.format(
+                #     keys_famous[number_famous],
+                #     day_famous.get(date_true),
+                #     month_famous.get(month_true),
+                #     year_true))
 
         print("//////////////////////////")
         print("Статистика")
@@ -130,3 +135,5 @@ def victory():
             bullvictory = True
         else:
             bullvictory = False
+
+

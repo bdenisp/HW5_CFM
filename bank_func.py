@@ -1,9 +1,9 @@
-def account_inc(base_arg, sum):  # функция пополнения счета
+def account_inc(base_arg, sum):  # функция пополнения счета (1)
     base_arg[0] += sum
     return base_arg
 
 
-def buy_operation(base_arg, good_arg, price_arg): #функция покупки
+def buy_operation(base_arg, good_arg, price_arg): #функция покупки (2)
     if base_arg[0] > price_arg:
         base_arg[0] -= price_arg
         base_arg[1].append(good_arg)
