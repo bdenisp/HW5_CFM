@@ -1,0 +1,2 @@
+files: ['victory_func.py', '.DS_Store', 'os_func.py', 'LICENSE', 'test_python.py', 'README.md', 'bank_func.py', 'test_filemanager.py', 'main.py', 'listdir.txt']
+dirs: ['.pytest_cache', '__pycache__', 'venv', '.git', '.idea']

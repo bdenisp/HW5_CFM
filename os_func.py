@@ -28,10 +28,6 @@ def copy_dir_file(src_arg, dst_arg):
         print('Не получится это сделать. Попробуйте еще раз.')
 
 
-if __name__ == '__main__':
-    copy_dir_file('test', 'test_copy')
-
-
 def get_dir_file():
     return os.listdir()
 
@@ -72,3 +68,11 @@ def change_wd(path_arg):
         print('Такой папки нет.')
         pass
 
+
+def create_txtfile(arg_filename, arg_text):
+    with open(arg_filename, 'w') as f:
+        f.write(arg_text)
+
+
+if __name__ == '__main__':
+    create_txtfile('listdir.txt', f'files: {str(get_file())}\ndirs: {str(get_dir())}')

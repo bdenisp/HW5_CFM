@@ -14,7 +14,8 @@ while True:
     print('9. играть в викторину')
     print('10. мой банковский счет')
     print('11. смена рабочей директории')
-    print('12. выход')
+    print('12. сохранить содержимое рабочей директории в файл')
+    print('13. выход')
 
     choice = input('Выберите пункт меню')
     if choice == '1':
@@ -56,6 +57,9 @@ while True:
         os_func.change_wd(input('Введите наименование новой папки для смены'))
 
     elif choice == '12':
+        os_func.create_txtfile('listdir.txt', f'files: {str(os_func.get_file())}\ndirs: {str(os_func.get_dir())}')
+
+    elif choice == '13':
         break
 
     else:
