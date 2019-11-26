@@ -131,9 +131,11 @@ def victory():
         print("//////////////////////////")
 
         bullvictory = input('Желаете еще раз сыграть?(y=Да/Прочее = нет)')
-        if bullvictory == 'y':
-            bullvictory = True
-        else:
-            bullvictory = False
 
+        # замена на тернарный оператор
+        bullvictory = True if bullvictory == 'y' else False
 
+ #       if bullvictory == 'y':
+ #           bullvictory = True
+ #       else:
+ #           bullvictory = False
