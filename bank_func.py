@@ -47,19 +47,19 @@ def bank_account():
         choice = input('Выберите пункт меню')
         if choice == '1':
             sum = input('Введите сумму пополнения счета:')
-            if sum.isdigit():
+            try:
                 sum = int(sum)
                 base = account_inc(base, sum)
-            else:
+            except:
                 print('Неверный ввод')
 
         elif choice == '2':
             sum = input('Введите сумму операции:')
-            if sum.isdigit():
+            try:
                 sum = int(sum)
                 operation = input('Наименование операции:')
                 base = buy_operation(base, operation, sum)
-            else:
+            except:
                 print('Неверный ввод')
 
         elif choice == '3':
