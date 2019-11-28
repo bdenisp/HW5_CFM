@@ -88,6 +88,32 @@ def trasformation_date(date_arg, month_arg, year_arg):
     return ('{} {} {} года'.format(day_famous.get(date_arg), month_famous.get(month_arg), year_arg))
 
 
+# декоратор
+def add_separator(f):
+    def inner_func(*args, **kwargs):
+        print('/' * 30)
+        res = f(*args, **kwargs)
+        print('/' * 30)
+        return res
+
+    return inner_func
+
+
+# применение декоратора
+@add_separator
+def print_stat(arg_all, arg_true):
+    arg_all = int(arg_all)
+    arg_true = int(arg_true)
+    print("Статистика")
+    print("Всего вопросов:", arg_all)
+    print("Правильных ответов:", arg_true)
+    print("Ошибок:", arg_all - arg_true)
+    try:
+        print("Процент правильных ответов:", 100 * arg_true / arg_all, '%')
+    except ZeroDivisionError:
+        print('Результат может Вас испугать, т.к. в знаменателе 0!')
+
+
 def victory():
     bullvictory = True
     number_question = 0
@@ -95,7 +121,13 @@ def victory():
     while bullvictory:
         counttrue = 0
         countall = 0
-        number_question = int(input('Сколько вопросов желаете?'))
+
+        while True:
+            try:
+                number_question = int(input('Сколько вопросов желаете?'))
+                break
+            except:
+                print('Неверный ввод!')
 
         for i in range(number_question):
             number_famous = random.sample(range(len(keys_famous)), 1)
@@ -116,24 +148,10 @@ def victory():
                 print('{} родился {}'.format(keys_famous[number_famous],
                                              trasformation_date(date_true, month_true, year_true)))
 
-                # print('{} родился {} {} {} года'.format(
-                #     keys_famous[number_famous],
-                #     day_famous.get(date_true),
-                #     month_famous.get(month_true),
-                #     year_true))
-
-        print("//////////////////////////")
-        print("Статистика")
-        print("Всего вопросов:", countall)
-        print("Правильных ответов:", counttrue)
-        print("Ошибок:", countall - counttrue)
-        print("Процент правильных ответов:", 100 * counttrue / countall, '%')
-        print("//////////////////////////")
+        #вызов декорируемой функции
+        print_stat(countall, counttrue)
 
         bullvictory = input('Желаете еще раз сыграть?(y=Да/Прочее = нет)')
-        if bullvictory == 'y':
-            bullvictory = True
-        else:
-            bullvictory = False
 
-
+        # использование тернарного оператора
+        bullvictory = True if bullvictory == 'y' else False
